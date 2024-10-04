@@ -1,5 +1,5 @@
 export interface BingoResponse {
-    Number: number;
-    Bingo: boolean;
-    PrevNumber: number | null;
+    number: number;
+    bingo: boolean;
+    prevNumber: number | null;
 }

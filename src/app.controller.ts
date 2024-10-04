@@ -8,6 +8,6 @@ export class AppController {
 
   @Get()
   GetBingo(): BingoResponse {
-    return this.appService.Bingo();
+    return this.appService.bingo();
   }
 }

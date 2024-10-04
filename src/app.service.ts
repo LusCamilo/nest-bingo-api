@@ -5,24 +5,24 @@ import { BingoResponse } from './response/bingoResponse';
 export class AppService {
   private prevNumber: number | null = null;
 
-  Bingo(): BingoResponse {
-    let randomNumber = this.GenerateBingoNumber();
+  bingo(): BingoResponse {
+    let randomNumber = this.generateBingoNumber();
 
-    const prevNumber = this.GetPrevNumber();
+    const prevNumber = this.getPrevNumber();
 
-    let bingoResponse = this.CheckBingo(randomNumber);
+    let bingoResponse = this.checkBingo(randomNumber);
 
-    this.SetPrevNumber(randomNumber);
+    this.setPrevNumber(randomNumber);
 
     return {
-      Bingo: bingoResponse,
-      Number: randomNumber,
-      PrevNumber: prevNumber,
+      bingo: bingoResponse,
+      number: randomNumber,
+      prevNumber: prevNumber,
     };
   }
 
-  CheckBingo(randomNumber: number) {
-    const prevRandomNumber = this.GetPrevNumber();
+  checkBingo(randomNumber: number) {
+    const prevRandomNumber = this.getPrevNumber();
 
     if (prevRandomNumber != null) {
       const numberResult = randomNumber - prevRandomNumber;
@@ -41,17 +41,17 @@ export class AppService {
     return false;
   }
 
-  GenerateBingoNumber() {
+  generateBingoNumber() {
     const min = Math.ceil(1);
     const max = Math.floor(10);
     return Math.floor(Math.random() * (max - min) + min);
   }
 
-  SetPrevNumber(PrevNumber: number) {
-    this.prevNumber = PrevNumber;
+  setPrevNumber(prevNumber: number) {
+    this.prevNumber = prevNumber;
   }
 
-  GetPrevNumber() {
+  getPrevNumber() {
     return this.prevNumber;
   }
 }
